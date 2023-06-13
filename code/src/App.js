@@ -1,15 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-// const pets = [
-//   'dog',
-//   'cat',
-//   'rabbit',
-//   'fish',
-//   'snake',
-//   'guinea pig',
-//   'parrot',
-//   'hamster',
-// ]
+const pets = [
+  'dog',
+  'cat',
+  'rabbit',
+  'fish',
+  'snake',
+  'guinea pig',
+  'parrot',
+  'hamster',
+]
+
+let [likedPet, sedLikedPet] = useState('')
+
+const selectLikedPet = () => {}
+
+const petDisplay = pets.map((pet) => {
+  return (
+    <label className="pet-selection" htmlFor={pet} key={pet}>
+      {pet}
+      <input
+        className="checkbox"
+        type="checkbox"
+        id={pet}
+        name={pet}
+        value={pet}
+      />
+    </label>
+  )
+})
 
 export const App = () => {
   return (
@@ -24,10 +43,11 @@ export const App = () => {
         </button>
       </div>
       <div className="first-question-form">
-        <h3 className="first-question">What is your favorite pet?</h3>
+        <h1 className="first-question">
+          Which of these pets do you like/love?
+        </h1>
+        <div className="pet-selection-form">{petDisplay}</div>
       </div>
-      <input type="checkbox" id="dog" name="dog" value="dog" />
-      <label htmlFor="dog">Dog</label>
     </>
   )
 }

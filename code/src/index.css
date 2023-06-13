@@ -48,14 +48,37 @@ code {
 
 }
 .continue-button:hover {
-  opacity: 50%;
+  opacity: 80%;
   border: solid 1px black;
 }
 
 .first-question-form {
   display: flex;
+  flex-direction: column;
   margin-top: 300px;
+  margin-left: 50px;
 }
-.first-question {
-  margin-left: 200px
+
+.pet-selection-form {
+  margin-top: 20px;
+  margin-bottom: 100px;
+  margin-left: 50px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.pet-selection {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.checkbox {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  background-color: rgb(155, 205, 210); 
 }
