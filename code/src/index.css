@@ -5,9 +5,57 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(31, 110, 140);
+  color:rgb(155, 205, 210);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.form {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.text-input{
+  border: 2px solid rgb(92, 137, 132);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(155, 205, 210);
+  margin-top: 100px;
+
+}
+.welcome {
+  font-size: 150px;
+}
+
+.welcome-message {
+  margin-top: 100px;
+}
+
+.continue-button {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(155, 205, 210);
+    border: none;
+    border-radius: 8px;
+
+}
+.continue-button:hover {
+  opacity: 50%;
+  border: solid 1px black;
+}
+
+.first-question-form {
+  display: flex;
+  margin-top: 300px;
+}
+.first-question {
+  margin-left: 200px
 }
