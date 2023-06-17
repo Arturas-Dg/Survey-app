@@ -28,7 +28,9 @@ code {
   flex-direction: column;
   align-items: center;
   color: rgb(155, 205, 210);
-  margin-top: 100px;
+  padding-top: 100px;
+  width: 1920px;
+  height: 1080px;
 
 }
 .welcome {
@@ -55,11 +57,13 @@ code {
 .first-question-form {
   display: flex;
   flex-direction: column;
-  margin-top: 300px;
   margin-left: 50px;
+  margin-top:50px;
+  height: 900px;
 }
 
 .pet-selection-form {
+  width: 300px;
   margin-top: 20px;
   margin-bottom: 100px;
   margin-left: 50px;
@@ -81,4 +85,9 @@ code {
   height: 25px;
   border-radius: 10px;
   background-color: rgb(155, 205, 210); 
+}
+
+.animal-photo {
+  width: 200px;
+  padding: 20px;
 }
