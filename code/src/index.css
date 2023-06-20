@@ -56,21 +56,23 @@ code {
 
 .first-question-form {
   display: flex;
-  flex-direction: column;
   margin-left: 50px;
-  margin-top:50px;
-  height: 900px;
+  padding-top: 200px;
+  justify-content: space-around;
 }
 
 .pet-selection-form {
-  width: 300px;
   margin-top: 20px;
   margin-bottom: 100px;
   margin-left: 50px;
+  margin-right: 50px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
   
+}
+.first-question-first-section {
+  margin-right: 50px;
 }
 
 .pet-selection {
@@ -87,7 +89,33 @@ code {
   background-color: rgb(155, 205, 210); 
 }
 
+.pet-images {
+  display:flex;
+  flex-wrap: wrap;
+  height: 700px;
+  width: 650px;
+  align-content:start;
+}
 .animal-photo {
-  width: 200px;
-  padding: 20px;
+  width: 150px;
+  padding: 4px;
+  object-fit: cover;
+}
+
+.second-question-form {
+  width: 1920px;
+  height: 1080px;
+  padding-left: 50px;
+}
+
+.duration-selection-radio-button {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 50px;
+}
+
+.radio {
+  width: 14px;
+  height: 14px;
 }

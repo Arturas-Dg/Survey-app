@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
+import Button from './components/Button.js'
+import Header from './components/Header.js'
 
 const pets = [
-  'dog',
-  'cat',
-  'rabbit',
-  'fish',
-  'snake',
-  'guinea pig',
-  'parrot',
-  'hamster',
+  'dogs',
+  'cats',
+  'rabbits',
+  'fishes',
+  'snakes',
+  'guinea pigs',
+  'parrots',
+  'hamsters',
 ]
 
 const animalPhotos = [
@@ -22,6 +24,13 @@ const animalPhotos = [
   'animalPhotos/snake.jpg',
 ]
 
+const durationOfOWnership = [
+  '0-5 years',
+  '5-10 years',
+  '10-15 years',
+  '15 years or longer',
+]
+
 const displayAnimalPhotos = animalPhotos.map((animal) => {
   return <img src={animal} className="animal-photo" alt="animal" key={animal} />
 })
@@ -30,10 +39,31 @@ const scrollFirstQuestion = () => {
   const firstQuestion = document.getElementById('first-question-form')
   firstQuestion.scrollIntoView({
     behavior: 'smooth',
-    block: 'end',
+    block: 'start',
     inline: 'nearest',
   })
 }
+
+const scrollSecondQuestion = () => {
+  const secondQuestion = document.getElementById('second-question-form')
+  secondQuestion.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest',
+  })
+}
+const displayDurationOfOwnership = durationOfOWnership.map((year) => (
+  <label htmlFor={year} key={year}>
+    <input
+      type="radio"
+      className="radio"
+      id={year}
+      name="fav-language"
+      value={year}
+    />
+    {year}
+  </label>
+))
 
 export const App = () => {
   const [favouritePets, setFavouritePets] = useState([])
@@ -63,27 +93,29 @@ export const App = () => {
   })
   return (
     <>
-      <div className="header">
-        <h1 className="welcome">Welcome!</h1>
-        <h2 className="welcome-message">
-          This is a survey on pets. If you want to proceed, press Continue.
-        </h2>
-        <button
-          type="submit"
-          className="continue-button"
-          onClick={scrollFirstQuestion}
-        >
-          Continue
-        </button>
-      </div>
+      <Header onClick={scrollFirstQuestion} />
       <div className="first-question-form" id="first-question-form">
-        <div>
+        <div className="first-question-first-section">
           <h1 className="first-question">
             Which of these pets do you like/love?
           </h1>
           <div className="pet-selection-form">{petDisplay}</div>
+          <Button
+            type="submit"
+            className="continue-button"
+            onClick={scrollSecondQuestion}
+            text="Proceed"
+          />
         </div>
         <div className="pet-images">{displayAnimalPhotos}</div>
+      </div>
+      <div className="second-question-form" id="second-question-form">
+        <h1 className="second-question">
+          How long have you been a pet owner for?
+        </h1>
+        <form className="duration-selection-radio-button">
+          {displayDurationOfOwnership}
+        </form>
       </div>
     </>
   )
