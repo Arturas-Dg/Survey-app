@@ -106,6 +106,7 @@ code {
   width: 1920px;
   height: 1080px;
   padding-left: 50px;
+  padding-top: 200px;
 }
 
 .duration-selection-radio-button {
@@ -113,6 +114,7 @@ code {
   display: flex;
   flex-direction: column;
   padding-left: 50px;
+  padding-bottom: 50px;
 }
 
 .radio {

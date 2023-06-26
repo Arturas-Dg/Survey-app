@@ -1,39 +1,10 @@
 import React, { useState } from 'react'
 import Button from './components/Button.js'
 import Header from './components/Header.js'
-
-const pets = [
-  'dogs',
-  'cats',
-  'rabbits',
-  'fishes',
-  'snakes',
-  'guinea pigs',
-  'parrots',
-  'hamsters',
-]
-
-const animalPhotos = [
-  'animalPhotos/cat.jpg',
-  'animalPhotos/dog.jpg',
-  'animalPhotos/fish.jpg',
-  'animalPhotos/guinea pig.jpg',
-  'animalPhotos/hamster.jpg',
-  'animalPhotos/parrot.jpg',
-  'animalPhotos/rabbit.jpg',
-  'animalPhotos/snake.jpg',
-]
-
-const durationOfOWnership = [
-  '0-5 years',
-  '5-10 years',
-  '10-15 years',
-  '15 years or longer',
-]
-
-const displayAnimalPhotos = animalPhotos.map((animal) => {
-  return <img src={animal} className="animal-photo" alt="animal" key={animal} />
-})
+import PetImages from 'components/PetImages.js'
+import PetNames from 'components/PetNames.js'
+import Question from 'components/Question.js'
+import DurationOfOWnership from 'components/DurationOfOwnership.js'
 
 const scrollFirstQuestion = () => {
   const firstQuestion = document.getElementById('first-question-form')
@@ -52,54 +23,18 @@ const scrollSecondQuestion = () => {
     inline: 'nearest',
   })
 }
-const displayDurationOfOwnership = durationOfOWnership.map((year) => (
-  <label htmlFor={year} key={year}>
-    <input
-      type="radio"
-      className="radio"
-      id={year}
-      name="fav-language"
-      value={year}
-    />
-    {year}
-  </label>
-))
 
 export const App = () => {
-  const [favouritePets, setFavouritePets] = useState([])
-
-  const onFavouriteChange = (e) => {
-    if (e.target.checked) {
-      setFavouritePets([...favouritePets, e.target.value])
-    } else {
-      setFavouritePets(favouritePets.filter((item) => item !== e.target.value))
-    }
-  }
-
-  const petDisplay = pets.map((pet) => {
-    return (
-      <label className="pet-selection" htmlFor={pet} key={pet}>
-        {pet}
-        <input
-          className="checkbox"
-          type="checkbox"
-          onChange={(e) => onFavouriteChange(e)}
-          id={pet}
-          name={pet}
-          value={pet}
-        />
-      </label>
-    )
-  })
   return (
     <>
       <Header onClick={scrollFirstQuestion} />
       <div className="first-question-form" id="first-question-form">
         <div className="first-question-first-section">
-          <h1 className="first-question">
-            Which of these pets do you like/love?
-          </h1>
-          <div className="pet-selection-form">{petDisplay}</div>
+          <Question
+            className="first-question"
+            text="Which of these pets do you like/love?"
+          />
+          <PetNames divClassName="pet-selection-form" />
           <Button
             type="submit"
             className="continue-button"
@@ -107,15 +42,20 @@ export const App = () => {
             text="Proceed"
           />
         </div>
-        <div className="pet-images">{displayAnimalPhotos}</div>
+        <PetImages divClassName="pet-images" />
       </div>
       <div className="second-question-form" id="second-question-form">
-        <h1 className="second-question">
-          How long have you been a pet owner for?
-        </h1>
-        <form className="duration-selection-radio-button">
-          {displayDurationOfOwnership}
-        </form>
+        <Question
+          className="second-question"
+          text=" How long have you been a pet owner for?"
+        />
+        <DurationOfOWnership formClassName="duration-selection-radio-button" />
+        <Button
+          type="submit"
+          className="continue-button"
+          onClick={scrollSecondQuestion}
+          text="Move to 3rd question"
+        />
       </div>
     </>
   )
