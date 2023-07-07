@@ -5,6 +5,8 @@ import PetImages from 'components/PetImages.js'
 import PetNames from 'components/PetNames.js'
 import Question from 'components/Question.js'
 import DurationOfOWnership from 'components/DurationOfOwnership.js'
+import SurveyEnding from 'components/SurveyEnding.js'
+import Results from 'components/Results.js'
 
 const scrollFirstQuestion = () => {
   const firstQuestion = document.getElementById('first-question-form')
@@ -18,6 +20,15 @@ const scrollFirstQuestion = () => {
 const scrollSecondQuestion = () => {
   const secondQuestion = document.getElementById('second-question-form')
   secondQuestion.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest',
+  })
+}
+
+const scrollThirdQuestion = () => {
+  const thirdQuestion = document.getElementById('last-question-form')
+  thirdQuestion.scrollIntoView({
     behavior: 'smooth',
     block: 'start',
     inline: 'nearest',
@@ -53,10 +64,24 @@ export const App = () => {
         <Button
           type="submit"
           className="continue-button"
-          onClick={scrollSecondQuestion}
-          text="Move to 3rd question"
+          onClick={scrollThirdQuestion}
+          text="Submit your answers"
         />
       </div>
+      <div className="last-question-form" id="last-question-form">
+        <SurveyEnding
+          nameId="name"
+          nameType="text"
+          mailId="mail"
+          mailType="text"
+          genderId="gender"
+          nameText="What's your name?"
+          mailText="your email (optional)"
+          genderText="select your gender"
+        />
+      </div>
+      <Results />
+      {console.log(SurveyEnding.userName)}
     </>
   )
 }

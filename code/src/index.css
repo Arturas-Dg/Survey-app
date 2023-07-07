@@ -7,7 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(31, 110, 140);
   color:rgb(155, 205, 210);
+  width: 1900px;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -29,7 +31,7 @@ code {
   align-items: center;
   color: rgb(155, 205, 210);
   padding-top: 100px;
-  width: 1920px;
+  width: 1900px;
   height: 1080px;
 
 }
@@ -56,23 +58,22 @@ code {
 
 .first-question-form {
   display: flex;
-  margin-left: 50px;
   padding-top: 200px;
   justify-content: space-around;
 }
 
 .pet-selection-form {
-  margin-top: 20px;
-  margin-bottom: 100px;
-  margin-left: 50px;
-  margin-right: 50px;
+  padding-top: 20px;
+  padding-bottom: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
   font-size: 20px;
   display: flex;
   flex-direction: column;
   
 }
 .first-question-first-section {
-  margin-right: 50px;
+  padding-right: 50px;
 }
 
 .pet-selection {
@@ -103,21 +104,65 @@ code {
 }
 
 .second-question-form {
-  width: 1920px;
+  width: 1850px;
   height: 1080px;
-  padding-left: 50px;
   padding-top: 200px;
+  padding-left: 50px;
 }
 
 .duration-selection-radio-button {
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  padding-left: 50px;
   padding-bottom: 50px;
 }
 
 .radio {
   width: 14px;
   height: 14px;
+}
+
+.last-question-form {
+  width: 1850px;
+  height: 1080px;
+  margin-left: 50px;
+  padding-top: 200px;
+}
+
+
+.name {
+  display: flex;
+}
+
+.name-input {
+  width: fit-content;
+  height: 30px;
+  margin-top: 20px;
+  align-items: end;
+  margin-left: 10px;
+}
+
+.mail {
+  display: flex;
+}
+
+.mail-input {
+  width: fit-content;
+  height: 30px;
+  margin-top: 20px;
+  align-items: end;
+  margin-left: 10px;
+}
+
+.gender {
+  display: flex;
+}
+
+.gender-input {
+  width: fit-content;
+  height: 20px;
+  margin-top: 30px;
+  align-items: end;
+  margin-left: 10px;
+  size: 30px;
 }
