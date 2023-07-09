@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
-const PetNames = ({ divClassName }) => {
-  const [favouritePets, setFavouritePets] = useState([])
+const PetNames = ({ divClassName, onFavouriteChange }) => {
   const pets = [
     'dogs',
     'cats',
@@ -12,13 +11,6 @@ const PetNames = ({ divClassName }) => {
     'parrots',
     'hamsters',
   ]
-  const onFavouriteChange = (e) => {
-    if (e.target.checked) {
-      setFavouritePets([...favouritePets, e.target.value])
-    } else {
-      setFavouritePets(favouritePets.filter((item) => item !== e.target.value))
-    }
-  }
 
   return (
     <div className={divClassName}>

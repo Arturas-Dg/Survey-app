@@ -166,3 +166,7 @@ code {
   margin-left: 10px;
   size: 30px;
 }
+
+.results {
+  display: none;
+}

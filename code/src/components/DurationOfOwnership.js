@@ -1,24 +1,13 @@
 import React, { useState } from 'react'
 import Button from './Button'
 
-const DurationOfOWnership = ({ formClassName }) => {
+const DurationOfOWnership = ({ formClassName, handleChange }) => {
   const durationOfOWnership = [
     '0-5 years',
     '5-10 years',
     '10-15 years',
     '15 years or longer',
   ]
-  const [OwnershipLength, setOwnershipLength] = useState('')
-  const handleChange = (e) => {
-    const target = e.target
-    if (target.checked) {
-      setOwnershipLength(target.value)
-    } else {
-      setOwnershipLength(
-        OwnershipLength.filter((item) => item !== e.target.value)
-      )
-    }
-  }
 
   return (
     <form className={formClassName}>

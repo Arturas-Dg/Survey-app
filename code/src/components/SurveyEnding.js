@@ -9,28 +9,13 @@ const SurveyEnding = ({
   nameText,
   mailText,
   genderText,
+  name,
+  mail,
+  gender,
+  onNameChange,
+  onMailChange,
+  onGenderChange,
 }) => {
-  const [name, setName] = useState('')
-  const [mail, setMail] = useState('')
-  const [gender, setGender] = useState('')
-
-  const onNameChange = (e) => {
-    setName(e.target.value)
-    console.log(e.target.value)
-  }
-  const onMailChange = (e) => {
-    setMail(e.target.value)
-    console.log(e.target.value)
-  }
-  const onGenderChange = (e) => {
-    setGender(e.target.value)
-    console.log(e.target.value)
-  }
-
-  const exportData = () => {
-    return name, mail, gender
-  }
-
   return (
     <>
       <div className="name">
@@ -67,7 +52,7 @@ const SurveyEnding = ({
           <option>Other</option>
         </select>
       </div>
-      <Button className="finish-button" onClick={exportData} />
+      <Button className="finish-button" onClick={} />
     </>
   )
 }

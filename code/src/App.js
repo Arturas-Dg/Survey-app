@@ -36,6 +36,43 @@ const scrollThirdQuestion = () => {
 }
 
 export const App = () => {
+  //This is where the selection of favorite pets happen, the function is passed into a React element
+  const [favouritePets, setFavouritePets] = useState([])
+  const onFavouriteChange = (e) => {
+    if (e.target.checked) {
+      setFavouritePets([...favouritePets, e.target.value])
+    } else {
+      setFavouritePets(favouritePets.filter((item) => item !== e.target.value))
+    }
+  }
+
+  //This is a section that is responsible for
+
+  const [ownershipLength, setOwnershipLength] = useState('')
+  const handleChange = (e) => {
+    const target = e.target
+    if (target.checked) {
+      setOwnershipLength(target.value)
+    } else {
+      setOwnershipLength(
+        ownershipLength.filter((item) => item !== e.target.value)
+      )
+    }
+  }
+
+  const [name, setName] = useState('')
+  const [mail, setMail] = useState('')
+  const [gender, setGender] = useState('')
+
+  const onNameChange = (e) => {
+    setName(e.target.value)
+  }
+  const onMailChange = (e) => {
+    setMail(e.target.value)
+  }
+  const onGenderChange = (e) => {
+    setGender(e.target.value)
+  }
   return (
     <>
       <Header onClick={scrollFirstQuestion} />
@@ -45,7 +82,10 @@ export const App = () => {
             className="first-question"
             text="Which of these pets do you like/love?"
           />
-          <PetNames divClassName="pet-selection-form" />
+          <PetNames
+            divClassName="pet-selection-form"
+            onFavouriteChange={onFavouriteChange}
+          />
           <Button
             type="submit"
             className="continue-button"
@@ -60,7 +100,10 @@ export const App = () => {
           className="second-question"
           text=" How long have you been a pet owner for?"
         />
-        <DurationOfOWnership formClassName="duration-selection-radio-button" />
+        <DurationOfOWnership
+          formClassName="duration-selection-radio-button"
+          handleChange={handleChange}
+        />
         <Button
           type="submit"
           className="continue-button"
@@ -78,10 +121,15 @@ export const App = () => {
           nameText="What's your name?"
           mailText="your email (optional)"
           genderText="select your gender"
+          name={name}
+          mail={mail}
+          gender={gender}
+          onNameChange={onNameChange}
+          onMailChange={onMailChange}
+          onGenderChange={onGenderChange}
         />
       </div>
-      <Results />
-      {console.log(SurveyEnding.userName)}
+      <Results className="results" name={name} />
     </>
   )
 }

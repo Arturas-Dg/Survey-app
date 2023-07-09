@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Results = () => {
+const Results = ({ name, className }) => {
   return (
     <>
-      <div>Hello world</div>
-      <div>Kaka</div>
+      <div className={className}>Thanks for answering, {name}</div>
+      {console.log(name)}
     </>
   )
 }
