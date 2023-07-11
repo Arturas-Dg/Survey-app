@@ -167,6 +167,19 @@ code {
   size: 30px;
 }
 
-.results {
-  display: none;
+.pet-result {
+  display: flex;
+  flex-direction: column;
+}
+
+.answer-pets {
+  display: flex;
+}
+
+.answer-pets-text {
+  margin-right: 5px;
+}
+
+.answer-pets-text2 {
+  margin-left: 5px;
 }

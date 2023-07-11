@@ -15,6 +15,7 @@ const SurveyEnding = ({
   onNameChange,
   onMailChange,
   onGenderChange,
+  onClick,
 }) => {
   return (
     <>
@@ -52,7 +53,7 @@ const SurveyEnding = ({
           <option>Other</option>
         </select>
       </div>
-      <Button className="finish-button" onClick={} />
+      <Button className="finish-button" onClick={onClick} text="Finish" />
     </>
   )
 }

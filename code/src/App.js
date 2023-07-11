@@ -73,63 +73,85 @@ export const App = () => {
   const onGenderChange = (e) => {
     setGender(e.target.value)
   }
+
+  const [result, setResult] = useState(false)
+
+  const onResultChange = () => {
+    setResult(true)
+  }
+
   return (
     <>
-      <Header onClick={scrollFirstQuestion} />
-      <div className="first-question-form" id="first-question-form">
-        <div className="first-question-first-section">
+      <div
+        className="input-form"
+        style={{ display: result ? 'none' : 'block' }}
+      >
+        <Header onClick={scrollFirstQuestion} />
+        <div className="first-question-form" id="first-question-form">
+          <div className="first-question-first-section">
+            <Question
+              className="first-question"
+              text="Which of these pets do you like/love?"
+            />
+            <PetNames
+              divClassName="pet-selection-form"
+              onFavouriteChange={onFavouriteChange}
+            />
+            <Button
+              type="submit"
+              className="continue-button"
+              onClick={scrollSecondQuestion}
+              text="Proceed"
+            />
+          </div>
+          <PetImages divClassName="pet-images" />
+        </div>
+        <div className="second-question-form" id="second-question-form">
           <Question
-            className="first-question"
-            text="Which of these pets do you like/love?"
+            className="second-question"
+            text=" How long have you been a pet owner for?"
           />
-          <PetNames
-            divClassName="pet-selection-form"
-            onFavouriteChange={onFavouriteChange}
+          <DurationOfOWnership
+            formClassName="duration-selection-radio-button"
+            handleChange={handleChange}
           />
           <Button
             type="submit"
             className="continue-button"
-            onClick={scrollSecondQuestion}
-            text="Proceed"
+            onClick={scrollThirdQuestion}
+            text="Submit your answers"
           />
         </div>
-        <PetImages divClassName="pet-images" />
+        <div className="last-question-form" id="last-question-form">
+          <SurveyEnding
+            nameId="name"
+            nameType="text"
+            mailId="mail"
+            mailType="text"
+            genderId="gender"
+            nameText="What's your name?"
+            mailText="your email (optional)"
+            genderText="select your gender"
+            name={name}
+            mail={mail}
+            gender={gender}
+            onNameChange={onNameChange}
+            onMailChange={onMailChange}
+            onGenderChange={onGenderChange}
+            onClick={onResultChange}
+          />
+        </div>
       </div>
-      <div className="second-question-form" id="second-question-form">
-        <Question
-          className="second-question"
-          text=" How long have you been a pet owner for?"
-        />
-        <DurationOfOWnership
-          formClassName="duration-selection-radio-button"
-          handleChange={handleChange}
-        />
-        <Button
-          type="submit"
-          className="continue-button"
-          onClick={scrollThirdQuestion}
-          text="Submit your answers"
-        />
-      </div>
-      <div className="last-question-form" id="last-question-form">
-        <SurveyEnding
-          nameId="name"
-          nameType="text"
-          mailId="mail"
-          mailType="text"
-          genderId="gender"
-          nameText="What's your name?"
-          mailText="your email (optional)"
-          genderText="select your gender"
-          name={name}
-          mail={mail}
-          gender={gender}
-          onNameChange={onNameChange}
-          onMailChange={onMailChange}
-          onGenderChange={onGenderChange}
-        />
-      </div>
-      <Results className="results" name={name} />
+      <Results
+        className="results"
+        name={name}
+        result={result}
+        favouritePets={favouritePets}
+        ownershipLength={ownershipLength}
+        mail={mail}
+        gender={gender}
+      />
+      {console.log()}
     </>
   )
 }
